@@ -8,12 +8,26 @@ function (angular, _, config) {
 
   var module = angular.module('grafana.services');
 
-  module.service('panelSrv', function($rootScope, $timeout, datasourceSrv, $q) {
+  module.service('panelSrv', function($rootScope, $timeout, datasourceSrv, $q, templateValuesSrv) {
 
     this.init = function($scope) {
       if (!$scope.panel.span) { $scope.panel.span = 12; }
 
       $scope.inspector = {};
+
+      $scope.useAsTemplate = function() {
+        var vars = templateValuesSrv.variables;
+        var options = vars[1].options;
+        _.each(options, function(option) {
+          if (option.text === 'All') {
+            return;
+          }
+          var newPanel = $scope.duplicatePanel();
+          _.each(newPanel.targets, function(target) {
+            target.target = target.target.replace('$server', option.value);
+          });
+        });
+      };
 
       $scope.editPanel = function() {
         if ($scope.panelMeta.fullscreen) {
@@ -36,7 +50,7 @@ function (angular, _, config) {
       };
 
       $scope.duplicatePanel = function() {
-        $scope.dashboard.duplicatePanel($scope.panel, $scope.row);
+        return $scope.dashboard.duplicatePanel($scope.panel, $scope.row);
       };
 
       $scope.updateColumnSpan = function(span) {

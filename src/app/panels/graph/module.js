@@ -38,6 +38,7 @@ function (angular, app, $, _, kbn, moment, TimeSeries, PanelMeta) {
 
     $scope.panelMeta.addExtendedMenuItem('Export CSV', '', 'exportCsv()');
     $scope.panelMeta.addExtendedMenuItem('Toggle legend', '', 'toggleLegend()');
+    $scope.panelMeta.addExtendedMenuItem('Use as Tempate', '', 'useAsTemplate()');
 
     // Set and populate defaults
     var _d = {
