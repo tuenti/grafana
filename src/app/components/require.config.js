@@ -10,6 +10,7 @@ require.config({
     settings:                 'components/settings',
     kbn:                      'components/kbn',
     store:                    'components/store',
+    panelclipboard:           'components/panelclipboard',
 
     css:                      '../vendor/require/css',
     text:                     '../vendor/require/text',
