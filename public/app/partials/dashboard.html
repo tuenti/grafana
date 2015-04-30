@@ -38,6 +38,9 @@
 										<li bindonce ng-repeat="(key, value) in panels">
 											<a ng-click="add_panel_default(key)" bo-text="value.name"></a>
 										</li>
+										<li>
+											<a ng-click="paste_panel(row)">Paste panel</a>
+										</li>
 									</ul>
 								</li>
 								<li class="dropdown-submenu">
@@ -103,6 +106,9 @@
 			<div class="span12" style="text-align:right;">
 				<span style="margin-right: 10px;" ng-click="add_row_default()" class="pointer btn btn-info btn-small">
 					<span><i class="fa fa-plus"></i> ADD ROW</span>
+				</span>
+				<span style="margin-right: 10px;" ng-click="paste_in_new_row()" class="pointer btn btn-info btn-small">
+					<span><i class="fa fa-plus"></i> PASTE IN NEW ROW</span>
 				</span>
 			</div>
 		</div>

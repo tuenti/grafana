@@ -18,6 +18,7 @@ function () {
 
     this.addMenuItem('edit', 'icon-cog', 'editPanel(); dismiss();');
     this.addMenuItem('duplicate', 'icon-copy', 'duplicatePanel()');
+    this.addMenuItem('copy', 'icon-copy', 'copyPanel(); dismiss();');
     this.addMenuItem('share', 'icon-share', 'sharePanel(); dismiss();');
 
     this.addEditorTab('General', 'app/partials/panelgeneral.html');

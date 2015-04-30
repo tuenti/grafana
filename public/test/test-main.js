@@ -8,6 +8,7 @@ require.config({
     config:                'components/config',
     kbn:                   'components/kbn',
     store:                 'components/store',
+    panelclipboard:        'components/panelclipboard',
 
     settings:              'components/settings',
     lodash:                'components/lodash.extended',

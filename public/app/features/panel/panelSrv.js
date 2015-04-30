@@ -2,8 +2,9 @@ define([
   'angular',
   'lodash',
   'config',
+  'panelclipboard'
 ],
-function (angular, _, config) {
+function (angular, _, config, panelclipboard) {
   'use strict';
 
   var module = angular.module('grafana.services');
@@ -15,6 +16,10 @@ function (angular, _, config) {
       if (!$scope.panel.span) { $scope.panel.span = 12; }
 
       $scope.inspector = {};
+
+      $scope.copyPanel = function() {
+        panelclipboard.set($scope.panel);
+      };
 
       $scope.editPanel = function() {
         $scope.toggleFullscreen(true);
